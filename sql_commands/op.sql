@@ -1,0 +1,22 @@
+CREATE TABLE course (
+    id NUMERIC,
+    name VARCHAR(255),
+    student NUMERIC,
+    CONSTRAINT COURSE_PK PRIMARY KEY (id)
+);
+
+CREATE TABLE student (
+    id NUMERIC,
+    name VARCHAR(255),
+    age NUMERIC,
+    CONSTRAINT STUDENT_PK PRIMARY KEY (id)
+);
+
+ALTER TABLE course 
+    ADD CONSTRAINT UN_COURSE_NAME
+    UNIQUE (name);
+
+ALTER TABLE course 
+    ADD CONSTRAINT FK_COURSE_STUDENT
+    FOREIGN KEY (student) 
+    REFERENCES student (id);
