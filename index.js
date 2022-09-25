@@ -1,3 +1,6 @@
+const user = require('./src/models/user');
+const operation = require('./src/models/operation');
+
 const express = require('express');
 const server = express();
 
@@ -17,9 +20,15 @@ server.use((req, res, next) => {
 
 server.use( '/', routes );
 
+
+
 db.sync({ force: false }).then(() => {
     server.listen(3001, () => {
         console.log('listening at 3001');
+
+        user.hasMany(operation);
+        operation.belongsTo(user);
+
         }   
     );
 });
