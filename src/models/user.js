@@ -1,11 +1,12 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const user_bank = db.define('user_bank', {
+const User_bank = db.define('user_bank', {
     id:{
         type: DataTypes.INTEGER,
+        allowNull: true,
         primaryKey: true,
-        // allowNull: false
+        autoIncrement: true
     },
     username: {
         type: DataTypes.STRING,
@@ -15,4 +16,4 @@ const user_bank = db.define('user_bank', {
     },
   });
 
-module.exports = user_bank;
+module.exports = User_bank;
