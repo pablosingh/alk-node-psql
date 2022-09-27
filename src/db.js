@@ -2,10 +2,8 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 
 const {
-    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
+    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT
   } = process.env;
-
-//   console.log(DB_USER, DB_PASSWORD, DB_HOST);
 
 var db = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
     logging: false, // set to console.log to see the raw SQL queries
@@ -13,5 +11,4 @@ var db = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAM
     dialect: 'postgres',
 });
 
-
-module.exports = db;
+module.exports = { db, PORT };

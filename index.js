@@ -1,12 +1,10 @@
 const Person = require('./src/models/Person');
 const Operation = require('./src/models/Operation');
-
 const express = require('express');
 const server = express();
-
 const routes = require('./src/routes/index.js');
-const db = require('./src/db.js');
-
+const { db } = require('./src/db.js');
+const { PORT } = require('./src/db.js');
 server.name = 'API';
 server.use(express.json());
 
@@ -23,16 +21,15 @@ server.use( '/', routes );
 async function test() {
     try {
         await db.authenticate();
-        console.log('Connection successfully.');
+        return 'Connection: OK';
     } catch (error) {
-        console.error('Error Connection:', error);
+        return 'Error Connection: ' +error;
     }
 };
 
 db.sync({ force: false }).then(() => {
-    server.listen(3001, () => {
-        console.log('listening at 3001');
-        test();
+    server.listen(PORT, async() => {
+        console.log( await test() + ' || listening at '+ PORT);
         }   
     );
 });
