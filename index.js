@@ -1,4 +1,4 @@
-const User = require('./src/models/User');
+const Person = require('./src/models/Person');
 const Operation = require('./src/models/Operation');
 
 const express = require('express');
@@ -20,25 +20,21 @@ server.use((req, res, next) => {
 
 server.use( '/', routes );
 
+async function test() {
+    try {
+        await db.authenticate();
+        console.log('Connection successfully.');
+    } catch (error) {
+        console.error('Error Connection:', error);
+    }
+};
+
 db.sync({ force: false }).then(() => {
     server.listen(3001, () => {
         console.log('listening at 3001');
-        User.hasMany(Operation, {
-            foreinkey: "userId",
-            sourceKey: "id",
-          });
-          Operation.belongsTo(User, { foreinkey: "userId", targetId: "id" });
+        test();
         }   
     );
 });
 
-async function test() {
-    try {
-        await db.authenticate();
-        console.log('Connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-};
-test();
 module.exports = server;

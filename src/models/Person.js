@@ -1,19 +1,30 @@
+const Operation = require('./Operation');
 const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const User_bank = db.define('user_bank', {
+const Person = db.define('person', {
     id:{
         type: DataTypes.INTEGER,
         allowNull: true,
         primaryKey: true,
         autoIncrement: true
     },
-    username: {
+    name: {
         type: DataTypes.STRING,
     },
     balance: {
         type: DataTypes.FLOAT,
     },
-  });
+});
 
-module.exports = User_bank;
+Person.hasMany(Operation, {
+    foreinkey: "personId",
+    sourceKey: "id",
+  });
+  
+Operation.belongsTo(Person, { 
+    foreinkey: "personId", 
+    targetId: "id" 
+});
+
+module.exports = Person;
