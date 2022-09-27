@@ -1,18 +1,24 @@
-const Person = require('../models/Person');
-const getOperation = require('../routes/getOperation');
-const createOp = require('../routes/createOp');
+// const Person = require('../models/Person');
+const getOperationByPerson = require('./getOperationByPerson');
+const createOperation = require('./createOperation');
 const createPerson = require('./createPerson');
+const getPerson = require('./getPerson');
+const editOperation = require('./editOperation');
+const deleteOperation = require('./deleteOperation');
+const editPerson = require('./editPerson');
+const deletePerson = require('./deletePerson');
 
 const { Router } = require('express');
 const router = Router();
 
-router.get('/test', (req, res) => res.json({ msg: 'test' }) );
+router.get('/getOperationByPerson/:personId', getOperationByPerson );
+router.post('/createOperation', createOperation );
+router.put('/editOperation', editOperation );
+router.delete('/deleteOperation', deleteOperation);
 
-router.get('/getOperations/:userId', getOperation );
-router.post('/createOp', createOp );
-router.post('/createUser', createPerson );
-// router.put('/editOp', getOp );
-// router.delete('/deleteOp', getOp );
-// router.get('/getusers', getOp );
+router.post('/createPerson', createPerson );
+router.get('/getPerson', getPerson );
+router.put('/editPerson', editPerson );
+router.delete('/deletePerson', deletePerson );
 
- module.exports = router;
+module.exports = router;
