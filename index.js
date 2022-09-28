@@ -27,7 +27,7 @@ async function test() {
     }
 };
 
-db.sync({ force: true }).then(() => {
+db.sync({ force: false }).then(() => {
     server.listen(PORT, async() => {
         console.log( await test() + ' || listening at '+ PORT);
         }   
