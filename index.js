@@ -4,7 +4,7 @@ const express = require('express');
 const server = express();
 const routes = require('./src/routes/index.js');
 const { db } = require('./src/db.js');
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 server.name = 'API';
 server.use(express.json());
 
@@ -28,8 +28,8 @@ async function test() {
 };
 
 db.sync({ force: false }).then(() => {
-    server.listen(PORT, async() => {
-        console.log( await test() + ' || listening at '+ PORT);
+    server.listen(port, async() => {
+        console.log( await test() + ' || listening at '+ port);
         }   
     );
 });
