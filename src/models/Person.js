@@ -1,4 +1,4 @@
-const Operation = require('./Operation');
+const Operation = require('./Operation.js');
 const { DataTypes } = require('sequelize');
 const { db } = require('../db');
 

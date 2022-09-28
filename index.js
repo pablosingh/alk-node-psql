@@ -1,5 +1,5 @@
-const Person = require('./src/models/Person');
-const Operation = require('./src/models/Operation');
+const Person = require('./src/models/Person.js');
+const Operation = require('./src/models/Operation.js');
 const express = require('express');
 const server = express();
 const routes = require('./src/routes/index.js');

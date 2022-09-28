@@ -1,6 +1,6 @@
 const { request } = require('../..');
-const Person = require('../models/Person');
-const Operation = require('../models/Operation');
+const Person = require('../models/Person.js');
+const Operation = require('../models/Operation.js');
 
 const getPerson = async (req, res) => {
     const { id } = req.body;
