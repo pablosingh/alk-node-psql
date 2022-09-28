@@ -21,6 +21,6 @@ router.get('/getPerson', getPerson );
 router.put('/editPerson', editPerson );
 router.delete('/deletePerson', deletePerson );
 
-router.get('/', (req,res)=> res.json({ msg: "ok" }));
+router.get('/', (req,res)=> res.json({ msg: "get ok" }));
 
 module.exports = router;
