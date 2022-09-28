@@ -27,11 +27,10 @@ async function test() {
     }
 };
 
-db.sync({ force: false }).then(() => {
+db.sync({ force: true }).then(() => {
     server.listen(PORT, async() => {
         console.log( await test() + ' || listening at '+ PORT);
         }   
     );
 });
-
 module.exports = server;
