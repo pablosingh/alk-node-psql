@@ -4,7 +4,8 @@ const express = require('express');
 const server = express();
 const routes = require('./src/routes/index.js');
 const { db } = require('./src/db.js');
-const { PORT } = require('./src/db.js');
+// const { PORT } = require('./src/db.js');
+const PORT = process.env.PORT || 3001;
 server.name = 'API';
 server.use(express.json());
 

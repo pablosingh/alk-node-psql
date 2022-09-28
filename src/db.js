@@ -2,7 +2,7 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 
 const {
-    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT, DB_URI
+    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_URI
   } = process.env;
 
 // var db = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
@@ -25,4 +25,4 @@ var db = new Sequelize(`${DB_URI}`, {
 });
 
 
-module.exports = { db, PORT };
+module.exports = { db };
