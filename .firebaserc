@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "alk-node-psql"
+  }
+}

@@ -11,7 +11,7 @@ const {
 //   dialect: 'postgres',
 // });
 
-const DB_URI_LOCAL = 'postgres://bbotuyiyyjgtfb:7b778e53c1fc4a11d58b267974bb00ad33b42656ffeff6909b7bede995e3ef11@ec2-35-168-122-84.compute-1.amazonaws.com:5432/d2e6f34g06tc59';
+const DB_URI_LOCAL = 'postgres://epazzmmmujrcdj:be59973b0c410221338c4f8a604cd86539dc35f25495aecbf8e086cb43530440@ec2-52-4-87-74.compute-1.amazonaws.com:5432/d22v7kq8qd7g63';
 
 var db = new Sequelize(`${DB_URI_LOCAL}`, {
   logging: false, // set to console.log to see the raw SQL queries
