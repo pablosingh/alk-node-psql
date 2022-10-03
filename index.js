@@ -4,14 +4,18 @@ const express = require('express');
 const server = express();
 const routes = require('./src/routes/index.js');
 const { db } = require('./src/db.js');
+const cors = require('cors');
 const port = process.env.PORT || 3001;
 server.name = 'API';
+server.use(cors());
 server.use(express.json());
+server.use(express.urlencoded( { extended: true, limit: '50mb' } ));
 
 server.get('/', (req, res) => res.send('Hello World!'));
 
 server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001', '*'); // update to match the domain you will make the request from
+    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000', '*'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
