@@ -2,11 +2,12 @@ const Operation = require('../models/Operation.js');
 
 const createOp = async (req, res) => {
     try{
-        const { type, amount, balance, personId } = req.body;
+        const { type, concept, amount, balance, personId, dateOp } = req.body;
+        // console.log(req.body);
         const newOperation = await Operation.create({
-            type, amount, balance, personId
+            type, concept, amount, balance, personId, dateOp
         });
-        res.json( { msg: "createOp", op: newOperation } );
+        res.json( { msg: "createOp", op: newOperation, dateOp } );
     } catch (error) {
         return res.status(500).json({ message: error.message });   
     }

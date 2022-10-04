@@ -9,13 +9,15 @@ const Operation = db.define('operation', {
     },
     type:{
       type: DataTypes.STRING,
-      allowNull: false
+    },
+    concept: {
+      type: DataTypes.STRING
     },
     amount: {
         type: DataTypes.FLOAT,
     },
-    balance: {
-        type: DataTypes.FLOAT,
+    dateOp:{
+      type: DataTypes.STRING,
     },
   });
 
