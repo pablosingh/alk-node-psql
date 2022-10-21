@@ -1,4 +1,3 @@
-const { request } = require('../..');
 const Person = require('../models/Person.js');
 const Operation = require('../models/Operation.js');
 

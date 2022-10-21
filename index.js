@@ -22,6 +22,10 @@ server.use((req, res, next) => {
     next();
   });
 
+server.use( (req,res,next)=> {
+    console.log('middleware');
+    next();
+});
 server.use( '/', routes );
 
 async function test() {
