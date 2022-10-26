@@ -5,7 +5,7 @@ const loginOrSigIn = async (req, res) => {
     const { email, password, name, balance } = req.body;
     try {
         const personFound = await Person.findOne({
-            where: { email, password },
+            where: { email },
             include: Operation
         });
         if(!personFound){

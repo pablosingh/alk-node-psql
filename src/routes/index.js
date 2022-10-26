@@ -23,7 +23,7 @@ router.get('/getPerson', getPerson );
 router.put('/editPerson', editPerson );
 router.delete('/deletePerson', deletePerson );
 
-router.get('/login', loginOrSigIn );
+router.post('/login', loginOrSigIn );
 
 router.get('/', (req,res)=> res.json({ msg: "ok" }));
 router.get('/jwt', (req,res)=> {
